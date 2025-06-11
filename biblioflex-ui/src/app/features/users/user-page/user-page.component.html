@@ -1,0 +1,13 @@
+@if (user$ | async; as user) {
+  <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+  <p>Email : {{ user.email }}</p>
+  <p>Téléphone : {{ user.phone }}</p>
+  <p>Adresse : {{ user.address }}</p>
+  <p>Ville : {{ user.city }}</p>
+  <p>Code postal : {{ user.postalCode }}</p>
+  <p>Pays : {{ user.country }}</p>
+  <p>Rôle : {{ user.role }}</p>
+  <p>Actif : {{ user.isActive ? 'Oui' : 'Non' }}</p>
+} @else {
+  <p>Utilisateur non trouvé.</p>
+}
