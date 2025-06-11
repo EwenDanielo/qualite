@@ -11,7 +11,7 @@ pipeline {
         POSTGRES_USER = credentials('pg-user')
         POSTGRES_PASSWORD = credentials('pg-password')
         POSTGRES_DB = 'Library'
-        POSTGRES_PORT = '5433'
+        POSTGRES_PORT = '5432'
     }
 
     stages {
