@@ -37,4 +37,10 @@ export class BookListComponent implements OnInit {
   goToBook(book: Book) {
     this.router.navigate(['/books', book.id]);
   }
+
+  // Not used
+  deleteBook(book: Book) {
+    this.bookService.deleteBookById(book.id!);
+    this.books = this.books.filter(b => b.id !== book.id);
+  }
 }

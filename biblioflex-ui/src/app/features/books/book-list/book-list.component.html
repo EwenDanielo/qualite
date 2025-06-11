@@ -15,6 +15,7 @@
     tabindex="0"
     role="button"
     [attr.aria-label]="'Voir le livre ' + book.title"
+    [ngClass]="{'unavailable': !book.available}"
   >
     <div class="book-card-image">
       <img src="https://via.placeholder.com/120x160?text=Livre" alt="Couverture du livre" />
@@ -26,7 +27,13 @@
       </div>
       <div class="book-card-body">
         <div><strong>ISBN:</strong> {{ book.isbn }}</div>
-        <div><strong>Stock:</strong> {{ book.stock }}</div>
+        <div><strong>Date de publication:</strong> {{ book.publishedDate | date:'yyyy-MM-dd' }}</div>
+        <div>
+          <strong>Disponible:</strong>
+          <span [ngClass]="{'text-success': book.available, 'text-danger': !book.available}">
+            {{ book.available ? 'Oui' : 'Non' }}
+          </span>
+        </div>
       </div>
     </div>
   </div>

@@ -67,7 +67,10 @@ h2 {
   box-shadow: 0 0 0 3px #a5b4fc, 0 8px 32px 0 rgba(30,41,59,0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
   background: rgba(245,245,255,0.99);
 }
-
+.book-card.unavailable {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
 .book-card-image {
   width: 120px;
   height: 160px;
