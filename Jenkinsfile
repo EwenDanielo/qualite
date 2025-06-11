@@ -19,7 +19,7 @@ pipeline {
 
         stage('Build Backend') {
             steps {
-                dir('qualite/biblioflex-api') {
+                dir('biblioflex-api') {
                     sh 'mvn clean verify'
                 }
             }
@@ -27,7 +27,7 @@ pipeline {
 
         stage('Build Frontend') {
             steps {
-                dir('qualite/biblioflex-ui') {
+                dir('biblioflex-ui') {
                     sh 'npm install'
                     sh 'npm run build'
                 }
@@ -36,7 +36,7 @@ pipeline {
 
         stage('SonarCloud Analysis') {
             steps {
-                dir('qualite') {
+                dir('.') {
                     sh '''
                     mvn sonar:sonar \
                     -Dsonar.projectKey=EwenDanielo_qualite \
@@ -53,21 +53,21 @@ pipeline {
 
         stage('Dependency Check (OWASP)') {
             steps {
-                dir('qualite/biblioflex-api') {
+                dir('biblioflex-api') {
                     // Exécute le scan OWASP Dependency-Check
                     sh 'dependency-check.sh --project "qualite-api" --scan . --format HTML --out dependency-check-report'
                 }
             }
             post {
                 always {
-                    archiveArtifacts artifacts: 'qualite/biblioflex-api/dependency-check-report/*.html', allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'biblioflex-api/dependency-check-report/*.html', allowEmptyArchive: true
                 }
             }
         }
 
         stage('Docker Compose up DB') {
             steps {
-                dir('qualite') {
+                dir('.') {
                     sh 'docker compose up -d postgres-db'
                 }
             }
@@ -76,7 +76,7 @@ pipeline {
     
     post {
         always {
-            junit 'qualite/biblioflex-api/target/surefire-reports/*.xml'
+            junit 'biblioflex-api/target/surefire-reports/*.xml'
             cleanWs()
         }
     }
