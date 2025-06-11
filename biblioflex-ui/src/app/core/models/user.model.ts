@@ -3,8 +3,9 @@ export interface User {
     firstName?: string;
     lastName?: string;
     email?: string;
-    password?: string;
     phone?: string;
+    // Not used
+    password?: string;
     address?: string;
     city?: string;
     postalCode?: string;

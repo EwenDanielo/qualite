@@ -1,10 +1,38 @@
 @if (book$ | async; as book) {
-  <h2>{{ book.title }}</h2>
-  <p>Auteur : {{ book.author }}</p>
-  <p>ISBN : {{ book.isbn }}</p>
-  <p>Stock : {{ book.stock }}</p>
+  <div class="book-details">
+    <div class="book-header">
+      <img class="book-cover" src="https://via.placeholder.com/120x180?text=Livre" alt="Couverture du livre" />
+      <div class="book-meta">
+        <h2>{{ book.title }}</h2>
+        <p>Auteur : {{ book.author }}</p>
+        <p>ISBN : {{ book.isbn }}</p>
+        <!-- <p class="stock">Stock : {{ book.stock }}</p> -->
+        <button class="reserve-btn" type="button">Réserver</button>
+      </div>
+    </div>
+    <section class="reviews">
+      <h3>Ce que disent les lecteurs</h3>
+      <div class="review">
+        <strong>Marie D.</strong>
+        <span class="stars">★★★★★</span>
+        <p>Un livre passionnant, je le recommande vivement !</p>
+      </div>
+      <div class="review">
+        <strong>Jean P.</strong>
+        <span class="stars">★★★★☆</span>
+        <p>Très bon ouvrage, facile à lire et instructif.</p>
+      </div>
+      <div class="review">
+        <strong>Sophie L.</strong>
+        <span class="stars">★★★★★</span>
+        <p>Un incontournable pour les amateurs du genre.</p>
+      </div>
+    </section>
+  </div>
 } @else {
-  <p>Livre non trouvé.</p>
+  <div class="not-found">
+    <p>Livre non trouvé.</p>
+  </div>
 }
 
 <ng-template #notFound>

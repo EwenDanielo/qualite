@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
   templateUrl: './book-page.component.html',
   standalone: true,
   imports: [CommonModule],
+  styleUrls: ['./book-page.component.scss'],
 })
 export class BookPageComponent implements OnInit {
   book$!: Observable<Book | undefined>;

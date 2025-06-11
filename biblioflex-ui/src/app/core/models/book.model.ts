@@ -3,8 +3,6 @@ export interface Book {
 	title: string;
 	author: string;
 	isbn: string;
-	stock: number;
-	description?: string;
-	publishedDate?: Date;
-	available?: boolean;
+	publishedDate: Date;
+	available: boolean;
 }
