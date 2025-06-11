@@ -14,4 +14,10 @@ export class BookService {
     getBookById = (id: number): Observable<Book | undefined> => 
       of(BOOKS_MOCK.find(book => book.id === id));
 
+    deleteBookById = (id: number): void => {
+      const index = BOOKS_MOCK.findIndex(book => book.id === id);
+      if (index !== -1) {
+        BOOKS_MOCK.splice(index, 1);
+      }
+    }
 }
