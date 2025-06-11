@@ -8,6 +8,10 @@ pipeline {
     environment {
         SONAR_TOKEN = credentials('sonar-token')
         GITHUB_TOKEN = credentials('github-token')
+        POSTGRES_USER = credentials('pg-user')
+        POSTGRES_PASSWORD = credentials('pg-password')
+        POSTGRES_DB = 'qualite'
+        POSTGRES_PORT = '5433'
     }
 
     stages {
