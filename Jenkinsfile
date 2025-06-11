@@ -6,13 +6,16 @@ pipeline {
   }
 
     environment {
-        SONAR_TOKEN = credentials('sonar-token')
-        GITHUB_TOKEN = credentials('github-token')
-        POSTGRES_USER = credentials('pg-user')
-        POSTGRES_PASSWORD = credentials('pg-password')
-        POSTGRES_DB = 'Library'
-        POSTGRES_PORT = '5432'
-    }
+    SONAR_TOKEN = credentials('sonar-token')
+    GITHUB_TOKEN = credentials('github-token')
+    PG_CREDS = credentials('pg-credentials')
+
+    POSTGRES_USER = "${PG_CREDS_USR}"
+    POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
+    POSTGRES_DB = 'Library'
+    POSTGRES_PORT = '5432'
+}
+
 
     stages {
         stage('Checkout') {
