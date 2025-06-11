@@ -1,0 +1,280 @@
+<div class="search-bar-container">
+  <input
+    type="text"
+    class="search-bar"
+    placeholder="Rechercher un livre..."
+    [(ngModel)]="search"
+  />
+</div>
+
+<div class="book-list-container" *ngIf="filteredBooks.length > 0">
+  <div
+    class="book-card"
+    *ngFor="let book of filteredBooks"
+    (click)="goToBook(book)"
+    tabindex="0"
+    role="button"
+    [attr.aria-label]="'Voir le livre ' + book.title"
+    [ngClass]="{'unavailable': !book.available}"
+  >
+    <div class="book-card-image">
+      <img src="https://via.placeholder.com/120x160?text=Livre" alt="Couverture du livre" />
+    </div>
+    <div class="book-card-content">
+      <div class="book-card-header">
+        <h3>{{ book.title }}</h3>
+        <span class="book-author">{{ book.author }}</span>
+      </div>
+      <div class="book-card-body">
+        <div><strong>ISBN:</strong> {{ book.isbn }}</div>
+        <div><strong>Date de publication:</strong> {{ book.publishedDate | date:'yyyy-MM-dd' }}</div>
+        <div>
+          <strong>Disponible:</strong>
+          <span [ngClass]="{'text-success': book.available, 'text-danger': !book.available}">
+            {{ book.available ? 'Oui' : 'Non' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+@if(filteredBooks.length === 0) {
+  <div class="empty-list">Aucun livre à afficher.</div>
+}
+
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>
+<footer></footer>

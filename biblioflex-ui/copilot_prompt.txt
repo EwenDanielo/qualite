@@ -1,0 +1,81 @@
+/************************************************************
+ * 📚 BiblioFlex-UI – Spécification complète (Angular 17)
+ *
+ * Objectif : générer tout le front d’une appli de gestion
+ * de prêts de livres – compatible Spring Boot API + JWT.
+ * Merci de produire le code, la structure de dossiers et
+ * les tests unitaires en suivant les directives ci-dessous.
+ *
+ * 1. Initialisation
+ *    - Projet standalone Angular 17 : `ng new biblioflex-ui
+ *      --standalone --routing --style=scss`
+ *    - Gestion d’état RxJS (pas NgRx).
+ *    - Styles globaux via SCSS + Angular Material.
+ *
+ * 2. Arborescence souhaitée
+ *    src/
+ *      app/
+ *        core/            → AuthService, ApiService, JwtInterceptor,
+ *                           AuthGuard, http-error.interceptor.ts
+ *        shared/          → ui/ (Button, Card, Modal) + pipes/
+ *        features/
+ *          books/
+ *            book-list/   → BookListComponent (mat-table + paginator)
+ *            book-card/   → BookCardComponent
+ *            book-form/   → BookFormComponent (ReactiveForms)
+ *          loans/
+ *            loan-dashboard/ → LoanDashboardComponent
+ *          auth/
+ *            login/       → LoginComponent
+ *            register/    → RegisterComponent
+ *
+ * 3. Modèles TypeScript
+ *    export interface Book { id?:number; title:string; author:string;
+ *      isbn:string; stock:number; }
+ *    export interface User { id?:number; email:string; password?:string;
+ *      role:'USER'|'ADMIN'; }
+ *    export interface Loan { id?:number; book:Book; user:User;
+ *      dueDate:string; returnedAt?:string; }
+ *
+ * 4. Routing
+ *    - ''              → redirectTo 'books'
+ *    - 'books'         → BookListComponent (AuthGuard)
+ *    - 'books/new'     → BookFormComponent  (AuthGuard, admin)
+ *    - 'loans'         → LoanDashboardComponent (AuthGuard)
+ *    - 'login'         → LoginComponent
+ *    - 'register'      → RegisterComponent
+ *
+ * 5. Services
+ *    ApiService        → wrappe HttpClient, gère apiBaseUrl des env.
+ *    AuthService       → login(), register(), logout(), currentUser$ (BehaviorSubject)
+ *    BookService       → CRUD livres (DTO ↔ modèle)
+ *    LoanService       → CRUD prêts, retour, retard
+ *
+ * 6. Sécurité côté front
+ *    - JwtInterceptor : ajoute `Authorization: Bearer <token>`
+ *      si token présent dans localStorage.
+ *    - AuthGuard : bloque routes privées si !token ou expiré.
+ *
+ * 7. UI / Angular Material
+ *    - Palette : primary #3f51b5, accent #ff4081, warn #f44336.
+ *    - mat-toolbar, mat-sidenav, mat-card, mat-table, mat-form-field,
+ *      mat-input, mat-icon, mat-button, mat-dialog.
+ *
+ * 8. Tests (Jest)
+ *    - Config Jest + @testing-library/angular (voir jest.config.js).
+ *    - Au moins un test par service + un test snapshot par composant.
+ *
+ * 9. Linting / Qualité
+ *    - ESLint (Angular preset) + sonar-scanner comment block à générer.
+ *
+ * 10. Bonus (facultatif mais apprécié)
+ *    - Pipe `truncate` (texte limité, ellipsis).
+ *    - Directive `hasRole` pour cacher certains boutons admin.
+ *    - Service `FakeBackendInterceptor` (dev mode) si API down.
+ *
+ * Merci de générer :
+ *    • Tous fichiers .ts/.scss/.html respectant cette structure.
+ *    • Un README.md avec instructions `npm install && ng serve`.
+ *    • Un fichier environment.ts contenant `apiBaseUrl`.
+ *    • Exemples de données factices (book-mock.ts…) pour dev.
+ ************************************************************/
