@@ -33,3 +33,8 @@ build/
 .vscode/
 
 .env
+
+### Angular ###
+/biblioflex-ui/.angular
+/biblioflex-ui/node_modules/
+/biblioflex-ui/package-lock.json

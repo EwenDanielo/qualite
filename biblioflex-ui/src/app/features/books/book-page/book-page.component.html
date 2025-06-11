@@ -1,0 +1,12 @@
+@if (book$ | async; as book) {
+  <h2>{{ book.title }}</h2>
+  <p>Auteur : {{ book.author }}</p>
+  <p>ISBN : {{ book.isbn }}</p>
+  <p>Stock : {{ book.stock }}</p>
+} @else {
+  <p>Livre non trouvé.</p>
+}
+
+<ng-template #notFound>
+  <p>Livre non trouvé.</p>
+</ng-template>
