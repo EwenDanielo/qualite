@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS client (
 
 CREATE TABLE IF NOT EXISTS reservation (
                               id SERIAL PRIMARY KEY,
-                              book_id INT REFERENCES books(id),
-                              client_id INT REFERENCES clients(id),
+                              book_id INT REFERENCES book(id),
+                              client_id INT REFERENCES client(id),
                               reservation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                               status VARCHAR(50) DEFAULT 'active'
 );
