@@ -10,7 +10,7 @@ pipeline {
         GITHUB_TOKEN = credentials('github-token')
         POSTGRES_USER = credentials('pg-user')
         POSTGRES_PASSWORD = credentials('pg-password')
-        POSTGRES_DB = 'qualite'
+        POSTGRES_DB = 'Library'
         POSTGRES_PORT = '5433'
     }
 
