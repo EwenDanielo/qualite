@@ -53,6 +53,8 @@ Après analyse, beaucoup des erreurs de duplications provenait de fichiers "cove
 
 ![image](https://github.com/user-attachments/assets/b1a52913-9402-4447-80cf-0a2d023c03f2)
 
+![image](https://github.com/user-attachments/assets/c49f7c17-71d0-4b44-a1d8-1f2de6988185)
+
 ![image](https://github.com/user-attachments/assets/dee47ecf-440f-4975-95de-8c4537bf451b)
 
 ### Lignes dupliquées
