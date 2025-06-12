@@ -91,4 +91,6 @@ Tentative de lier le coverage de Karma avec SonarCloud avec
 
 ![image](https://github.com/user-attachments/assets/cc70d3d0-ce9f-4912-bde3-13d0b3c9c060)
 
+---
+
 Cette analyse nous montre plusiuers faiblesses importantes, comme des problèmes de duplication de code, de comformité HTML et de sécurité.
