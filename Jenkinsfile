@@ -9,10 +9,7 @@ pipeline {
     environment {
         SONAR_TOKEN = credentials('sonar-token')
         GITHUB_TOKEN = credentials('github-token')
-        PG_CREDS = credentials('pg-credentials')
 
-        POSTGRES_USER = "${PG_CREDS_USR}"
-        POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
         POSTGRES_HOST = "qualite_postgres"
         POSTGRES_DB = 'Library'
         POSTGRES_PORT = '5432'
@@ -42,7 +39,11 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('biblioflex-api') {
-                    sh 'mvn clean verify'
+                    withCredentials([usernamePassword(credentialsId: 'pg-credentials', 
+                                                     usernameVariable: 'POSTGRES_USER', 
+                                                     passwordVariable: 'POSTGRES_PASSWORD')]) {
+                        sh 'mvn clean verify'
+                    }
                 }
             }
         }
