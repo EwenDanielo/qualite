@@ -1,10 +1,15 @@
 # Rapport de Qualité du Projet
 
+Dans le cadre d'un TP, nous avons essayer de mettre en place une chaine d'outils combinants GitHub avec SonarCloud et Jenkins pour analysé la qualité de notre code à chaque push sur la branche master.
+
+Nous avons créer un projet de 0 avec un front Angular, un back Java et une base de données PostgreSql. 
+
+---
+
 Utilisation d'outils de vérification du code:
 - Tests unitaires (JUnit, Jasmine)
 - SonarCloud
 - Jenkins
-
 
 ![image](https://github.com/user-attachments/assets/0a80796f-0162-45d0-b6d8-e43592ec05e6)
 
