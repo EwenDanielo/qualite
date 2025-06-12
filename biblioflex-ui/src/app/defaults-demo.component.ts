@@ -5,44 +5,44 @@ import { Component, ElementRef } from '@angular/core';
   template: `<div #dangerZone></div>`,
 })
 export class DefautsDemoComponent {
-  public a = 5; // ❌ Mauvais nommage
-  public b = 5; // ❌ Code dupliqué
+  public a = 5;
+  public b = 5;
 
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
-    if (this.a = 5) { // ❌ Bug : affectation au lieu de comparaison
-      console.log("Toujours vrai"); // ❌ Code inutile
+    if (this.a = 5) {
+      console.log("Toujours vrai");
     }
 
-    if (true) { // ❌ Code mort (toujours vrai)
+    if (true) {
       console.log("Ce bloc est toujours exécuté");
     }
 
     if (this.a > 0) {
       return true;
     } else {
-      return false; // ❌ Else inutile
+      return false;
     }
 
-    this.ancienneMethode(); // ❌ Fonction non utilisée ailleurs
-    this.el.nativeElement.innerHTML = location.href; // ⚠️ OWASP XSS potentiel
+    this.ancienneMethode();
+    this.el.nativeElement.innerHTML = location.href;
   }
 
   ancienneMethode() {
-    let x: any = 'texte'; // ❌ Type any utilisé
+    let x: any = 'texte';
     console.log(x);
   }
 
-  functionDupliquee() { // ❌ Fonction dupliquée
+  functionDupliquee() {
     console.log("Fonction 1");
   }
 
-  functionDupliquee2() { // ❌ Fonction dupliquée (même contenu)
+  functionDupliquee2() {
     console.log("Fonction 1");
   }
 
-  fonctionComplexe(n: number): string { // ❌ Complexité cyclomatique élevée
+  fonctionComplexe(n: number): string { 
     if (n < 0) {
       if (n < -5) {
         if (n < -10) {
