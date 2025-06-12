@@ -11,6 +11,16 @@ Utilisation d'outils de vérification du code:
 - SonarCloud
 - Jenkins
 
+Pour ce qui est de SonarCloud, nous avons connecter l'interface directement avec le repository GitHub
+
+![image](https://github.com/user-attachments/assets/cd633bf9-69e6-44d7-b34b-73b9d3ec67b9)
+
+Ensuite, il a fallu configurer comme ci-dessous le projet SonarCloud
+![image](https://github.com/user-attachments/assets/807e701c-397c-48c9-9ac9-af62fec74939)
+
+Enfin une première analyse a été réalisé par SonarCloud
+![image](https://github.com/user-attachments/assets/97bd58a3-6fb9-4a50-bdab-65a058b2f786)
+
 ![image](https://github.com/user-attachments/assets/0a80796f-0162-45d0-b6d8-e43592ec05e6)
 
 ### Echec du Quality Gate
