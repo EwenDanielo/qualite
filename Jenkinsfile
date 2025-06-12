@@ -12,6 +12,7 @@ pipeline {
 
     POSTGRES_USER = "${PG_CREDS_USR}"
     POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
+    POSTGRES_HOST = "qualite_postgres"
     POSTGRES_DB = 'Library'
     POSTGRES_PORT = '5432'
 }
