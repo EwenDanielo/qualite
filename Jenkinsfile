@@ -11,8 +11,8 @@ pipeline {
         GITHUB_TOKEN = credentials('github-token')
         PG_CREDS = credentials('pg-credentials')
 
-        POSTGRES_USER = credentials('pg-credentials').username
-        POSTGRES_PASSWORD = credentials('pg-credentials').password
+        POSTGRES_USER = "${PG_CREDS_USR}"
+        POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
         POSTGRES_HOST = "qualite_postgres"
         POSTGRES_DB = 'Library'
         POSTGRES_PORT = '5432'
