@@ -50,15 +50,15 @@ pipeline {
 
         stage('SonarCloud Analysis') {
             steps {
-                dir('.') {
+                dir('biblioflex-api') {
                     sh '''
                     mvn sonar:sonar \
                     -Dsonar.projectKey=EwenDanielo_qualite \
                     -Dsonar.organization=ewendanielo-1 \
                     -Dsonar.host.url=https://sonarcloud.io \
                     -Dsonar.login=${SONAR_TOKEN} \
-                    -Dsonar.sources=biblioflex-api/src,biblioflex-ui/src \
-                    -Dsonar.java.binaries=biblioflex-api/target/classes \
+                    -Dsonar.sources=../biblioflex-api/src,../biblioflex-ui/src \
+                    -Dsonar.java.binaries=target/classes \
                     -Dsonar.language=java,js,ts
                     '''
                 }
