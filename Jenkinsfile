@@ -23,6 +23,8 @@ pipeline {
             steps {
                 echo "Username: $PG_CREDS_USR"
                 echo "Password: $PG_CREDS_PSW"
+                echo POSTGRES_USER
+                echo POSTGRES_PASSWORD
             }
         }
         stage('Checkout') {
