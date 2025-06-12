@@ -1,5 +1,7 @@
 services:
   jenkins:
+    user: root
+    privileged: true
     image: jenkins/jenkins:lts
     container_name: jenkins
     ports:
