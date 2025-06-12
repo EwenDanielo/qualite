@@ -86,8 +86,10 @@ Et une pipeline sur jenkins.
 ![image](https://github.com/user-attachments/assets/ea51511e-f4f7-4945-8958-0de23e87510b)
 
 Mais nous n'arrivons pas à faire fonctionner jenkins, le build présente toujours des erreurs dans les logs, nous avons pu en résoudre plusieurs mais nous avons encore des problèmes.
+Les stage du backend et de sonarcloud ne focntionne pas.
 
-![image](https://github.com/user-attachments/assets/d9d6a55a-9473-4984-8d41-bb88db9735e0)
+![image](https://github.com/user-attachments/assets/26ac203a-7b7a-4ca7-8195-9f327713b756)
+
 
 Nous avons alors effectué nos différents tests à la main
 
