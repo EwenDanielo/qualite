@@ -48,6 +48,27 @@ pipeline {
             }
         }
 
+        stage('Dependency Check (OWASP)') {
+            steps {
+                dir('biblioflex-api') {
+                    sh 'dependency-check.sh --project "qualite-api" --scan . --format HTML --out dependency-check-report'
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'biblioflex-api/dependency-check-report/*.html', allowEmptyArchive: true
+                }
+            }
+        }
+
+        stage('Build Backend') {
+            steps {
+                dir('biblioflex-api') {
+                    sh 'mvn clean verify'
+                }
+            }
+        }
+
         stage('SonarCloud Analysis') {
             steps {
                 dir('biblioflex-api') {
@@ -61,19 +82,6 @@ pipeline {
                     -Dsonar.java.binaries=target/classes \
                     -Dsonar.language=java,js,ts
                     '''
-                }
-            }
-        }
-
-        stage('Dependency Check (OWASP)') {
-            steps {
-                dir('biblioflex-api') {
-                    sh 'dependency-check.sh --project "qualite-api" --scan . --format HTML --out dependency-check-report'
-                }
-            }
-            post {
-                always {
-                    archiveArtifacts artifacts: 'biblioflex-api/dependency-check-report/*.html', allowEmptyArchive: true
                 }
             }
         }
