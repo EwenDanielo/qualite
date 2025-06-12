@@ -37,3 +37,12 @@ Utilisation d'outils de vérification du code:
 
 ### Problème de sécurité : Code Injection
 Un hotspot critique a été identifié : une potentielle injection via la chaîne `"javascript:"` dans un champ simulant du code javascript.
+
+---
+
+Jenkins
+
+Tests unitaires JUnit
+
+![image](https://github.com/user-attachments/assets/215201c7-013b-4d6e-91bc-3c77407a9069)
+
