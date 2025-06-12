@@ -25,4 +25,18 @@ pipeline {
             }
         }
     }
+
+    stage('Docker Compose up DB') {
+            steps {
+                dir('.') {
+                    sh '''
+                    if [ $(docker ps -a -q -f name=qualite_postgres) ]; then
+                        docker rm -f qualite_postgres
+                    fi
+                    docker-compose up -d postgres-db
+                    sleep 10
+                    '''
+                }
+            }
+        }
 }
