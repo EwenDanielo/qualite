@@ -25,11 +25,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            junit 'biblioflex-api/target/surefire-reports/*.xml'
-            cleanWs()
-        }
-    }
 }
