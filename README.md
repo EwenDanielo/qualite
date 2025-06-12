@@ -71,8 +71,6 @@ Nous n'avons malheureusement pas réussi à utiliser Jenkins pour unifier les cy
 
 ![image](https://github.com/user-attachments/assets/d9d6a55a-9473-4984-8d41-bb88db9735e0)
 
-![image](https://github.com/user-attachments/assets/7137e321-068f-45f1-b6a2-565613f29402)
-
 Nous avons alors effectué nos différents tests à la main
 
 Tests unitaires JUnit
