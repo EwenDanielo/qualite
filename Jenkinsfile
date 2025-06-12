@@ -36,18 +36,28 @@ pipeline {
             }
         }
 
-        stage('Build Backend') {
+        stage('Docker Compose up DB') {
             steps {
-                dir('biblioflex-api') {
-                    withCredentials([usernamePassword(credentialsId: 'pg-credentials', 
-                                                     usernameVariable: 'POSTGRES_USER', 
-                                                     passwordVariable: 'POSTGRES_PASSWORD')]) {
-                        sh 'mvn clean verify'
+                withCredentials([usernamePassword(credentialsId: 'pg-credentials', 
+                                                 usernameVariable: 'POSTGRES_USER', 
+                                                 passwordVariable: 'POSTGRES_PASSWORD')]) {
+                    dir('.') {
+                        sh '''
+                        if [ $(docker ps -a -q -f name=qualite_postgres) ]; then
+                            docker rm -f qualite_postgres
+                        fi
+        
+                        export POSTGRES_USER=${POSTGRES_USER}
+                        export POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+                        
+                        docker-compose up -d postgres-db
+                        sleep 10
+                        '''
                     }
                 }
             }
         }
-
+        
         stage('Build Frontend') {
             steps {
                 dir('biblioflex-ui') {
