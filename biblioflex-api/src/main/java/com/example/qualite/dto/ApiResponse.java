@@ -4,7 +4,6 @@ import lombok.*;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Getter
 public class ApiResponse<T> {
@@ -18,5 +17,5 @@ public class ApiResponse<T> {
     public ApiResponse(String error) {
         this.error = error;
     }
-
 }
+
