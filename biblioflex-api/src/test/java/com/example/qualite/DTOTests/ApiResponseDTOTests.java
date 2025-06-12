@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ApiReponseDTOTests {
+class ApiResponseDTOTests {
 
     @Test
     void testConstructorWithData() {
