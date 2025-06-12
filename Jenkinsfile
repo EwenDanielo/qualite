@@ -24,6 +24,15 @@ pipeline {
             }
         }
 
+        stage('Docker Compose up DB') {
+            steps {
+                dir('.') {
+                    sh 'docker compose up -d postgres-db'
+                    sh 'sleep 10'
+                }
+            }
+        }
+
         stage('Build Backend') {
             steps {
                 dir('biblioflex-api') {
@@ -68,14 +77,6 @@ pipeline {
             post {
                 always {
                     archiveArtifacts artifacts: 'biblioflex-api/dependency-check-report/*.html', allowEmptyArchive: true
-                }
-            }
-        }
-
-        stage('Docker Compose up DB') {
-            steps {
-                dir('.') {
-                    sh 'docker compose up -d postgres-db'
                 }
             }
         }
