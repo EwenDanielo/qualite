@@ -19,19 +19,6 @@ pipeline {
 
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: '*/master']],
-                    userRemoteConfigs: [[
-                        url: 'https://github.com/EwenDanielo/qualite.git',
-                        credentialsId: 'github-token'
-                    ]]
-                ])
-            }
-        }
-
         stage('Docker Compose up DB') {
             steps {
                 dir('.') {
