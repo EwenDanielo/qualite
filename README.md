@@ -60,6 +60,8 @@ Après analyse, beaucoup des erreurs de duplications provenait de fichiers "cove
 ### Lignes dupliquées
 - `biblioflex-ui/coverage` contient **815 lignes dupliquées**, soit **24%** du nouveau code.
 
+---
+
 ![image](https://github.com/user-attachments/assets/f71a3f85-ef28-408b-a078-0763ddece4d6)
 
 ### Problème de sécurité : Code Injection
