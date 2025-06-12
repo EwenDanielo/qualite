@@ -13,20 +13,12 @@ pipeline {
 
         POSTGRES_USER = "${PG_CREDS_USR}"
         POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
-        POSTGRES_HOST = "qualite_postgres"
+        POSTGRES_HOST = "postgres-db"
         POSTGRES_DB = 'Library'
         POSTGRES_PORT = '5432'
     }
 
     stages {
-        stage('Example') {
-            steps {
-                echo "Username: $PG_CREDS_USR"
-                echo "Password: $PG_CREDS_PSW"
-                echo POSTGRES_USER
-                echo POSTGRES_PASSWORD
-            }
-        }
         stage('Checkout') {
             steps {
                 checkout scm
