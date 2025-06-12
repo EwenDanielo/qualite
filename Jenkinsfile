@@ -28,7 +28,7 @@ pipeline {
         stage('Docker Compose up DB') {
             steps {
                 dir('.') {
-                    sh 'docker compose up -d postgres-db'
+                    sh 'docker compose up postgres-db'
                     sh 'sleep 10'
                 }
             }
