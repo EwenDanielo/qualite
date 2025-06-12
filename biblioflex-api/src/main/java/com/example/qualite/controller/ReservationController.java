@@ -1,5 +1,6 @@
 package com.example.qualite.controller;
 
+import com.example.qualite.dto.ApiResponse;
 import com.example.qualite.entity.Book;
 import com.example.qualite.entity.Client;
 import com.example.qualite.entity.Reservation;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/reservations")
@@ -31,12 +33,14 @@ public class ReservationController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody Reservation reservation) {
+    public ResponseEntity<ApiResponse<Reservation>> create(@RequestBody Reservation reservation) {
         Book book = bookRepository.findById(reservation.getBook().getId()).orElse(null);
         Client client = clientRepository.findById(reservation.getClient().getId()).orElse(null);
 
         if (book == null || client == null) {
-            return ResponseEntity.badRequest().body("Book or Client not found");
+            return ResponseEntity
+                    .badRequest()
+                    .body(new ApiResponse<>(null, "Book or Client not found"));
         }
 
         reservation.setBook(book);
@@ -47,6 +51,7 @@ public class ReservationController {
         book.setAvailable(false);
         bookRepository.save(book);
 
-        return ResponseEntity.ok(reservationRepository.save(reservation));
+        Reservation saved = reservationRepository.save(reservation);
+        return ResponseEntity.ok(new ApiResponse<>(saved, null));
     }
 }

@@ -9,5 +9,8 @@ import { HeaderComponent } from './shared/header/header.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  const string test = "test";
+  const string[] tests = []
+  
   title = 'biblioflex';
 }
