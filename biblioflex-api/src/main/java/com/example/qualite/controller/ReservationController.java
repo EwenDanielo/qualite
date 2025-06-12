@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/reservations")
@@ -38,9 +37,10 @@ public class ReservationController {
         Client client = clientRepository.findById(reservation.getClient().getId()).orElse(null);
 
         if (book == null || client == null) {
+            // Ici on précise explicitement le type générique <Reservation>
             return ResponseEntity
                     .badRequest()
-                    .body(new ApiResponse<>(null, "Book or Client not found"));
+                    .body(new ApiResponse<Reservation>(null, "Book or Client not found"));
         }
 
         reservation.setBook(book);
