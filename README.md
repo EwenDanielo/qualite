@@ -46,3 +46,8 @@ Tests unitaires JUnit
 
 ![image](https://github.com/user-attachments/assets/215201c7-013b-4d6e-91bc-3c77407a9069)
 
+Tests unitaires Jasmine + Karma
+
+![image](https://github.com/user-attachments/assets/fdea1e03-8953-4d17-a245-86a0aecf3000)
+
+
