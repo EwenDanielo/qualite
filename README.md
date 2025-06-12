@@ -46,8 +46,16 @@ Tests unitaires JUnit
 
 ![image](https://github.com/user-attachments/assets/215201c7-013b-4d6e-91bc-3c77407a9069)
 
-Tests unitaires Jasmine + Karma
+Tests unitaires Jasmine + Karma effectué a la main avec
+"ng test"
 
 ![image](https://github.com/user-attachments/assets/fdea1e03-8953-4d17-a245-86a0aecf3000)
+
+Tentative de lier le coverage de Karma avec SonarCloud avec
+"npx ng test --code-coverage --watch=false"
+
+![image](https://github.com/user-attachments/assets/30e6eac3-6a51-4fcd-bac7-9f6a490bad8a)
+
+![image](https://github.com/user-attachments/assets/cc70d3d0-ce9f-4912-bde3-13d0b3c9c060)
 
 
