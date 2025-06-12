@@ -21,7 +21,10 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/EwenDanielo/qualite.git', credentialsId: 'github-token'
+                git(
+                    url: 'https://github.com/EwenDanielo/qualite.git',
+                    credentialsId: 'github-token'
+                )
             }
         }
 
