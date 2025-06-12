@@ -25,9 +25,6 @@ pipeline {
                 echo "Password: $PG_CREDS_PSW"
             }
         }
-    }
-
-    stages {
         stage('Checkout') {
             steps {
                 checkout scm
