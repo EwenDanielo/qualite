@@ -69,7 +69,23 @@ Un hotspot critique a été identifié : une potentielle injection via la chaîn
 
 ---
 
-Nous n'avons malheureusement pas réussi à utiliser Jenkins pour unifier les cycles de build, de tests et d'analyse de qualité. Nous avons des erreurs sur la configuration de Jenkins et de Docker.
+Nous avons tenté d'utiliser Jenkins pour unifier les cycles de build, de tests et d'analyse de qualité. 
+
+Sur jenkins, nous avons installé des plugins comme pipeline, SonarQube scanner, github integration et OWASP Dependency-Check.
+
+Dans les tools, nous avons pu configurer ces plugins.
+![image](https://github.com/user-attachments/assets/273be259-b572-49af-bc5e-207583f09b36)
+
+![image](https://github.com/user-attachments/assets/a95cb7c2-b5ce-459f-bcc9-930a0d258295)
+
+Nous avons créé des credentials et un Jenkinsfile
+![image](https://github.com/user-attachments/assets/939a5a91-862b-4057-958c-139a4a0f2910)
+
+Et une pipeline sur jenkins.
+
+![image](https://github.com/user-attachments/assets/ea51511e-f4f7-4945-8958-0de23e87510b)
+
+Mais nous n'arrivons pas à faire fonctionner jenkins, le build présente toujours des erreurs dans les logs, nous avons pu en résoudre plusieurs mais nous avons encore des problèmes.
 
 ![image](https://github.com/user-attachments/assets/d9d6a55a-9473-4984-8d41-bb88db9735e0)
 
