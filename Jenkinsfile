@@ -38,5 +38,13 @@ pipeline {
                 }
             }
         }
+
+        stage('Build Backend') {
+            steps {
+                dir('biblioflex-api') {
+                    sh 'mvn clean verify'
+                }
+            }
+        }
     }
 }
