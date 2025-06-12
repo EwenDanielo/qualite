@@ -2,33 +2,47 @@ pipeline {
     agent any
 
     tools {
-    maven 'Maven 3.9.10'
-  }
+        maven 'Maven 3.9.10'
+        git 'Default'
+    }
 
     environment {
-    SONAR_TOKEN = credentials('sonar-token')
-    GITHUB_TOKEN = credentials('github-token')
-    PG_CREDS = credentials('pg-credentials')
+        SONAR_TOKEN = credentials('sonar-token')
+        GITHUB_TOKEN = credentials('github-token')
+        PG_CREDS = credentials('pg-credentials')
 
-    POSTGRES_USER = "${PG_CREDS_USR}"
-    POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
-    POSTGRES_DB = 'Library'
-    POSTGRES_PORT = '5432'
-}
-
+        POSTGRES_USER = "${PG_CREDS_USR}"
+        POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
+        POSTGRES_HOST = "qualite_postgres"
+        POSTGRES_DB = 'Library'
+        POSTGRES_PORT = '5432'
+    }
 
     stages {
+        stage('Example') {
+            steps {
+                echo "Username: $PG_CREDS_USR"
+                echo "Password: $PG_CREDS_PSW"
+                echo POSTGRES_USER
+                echo POSTGRES_PASSWORD
+            }
+        }
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/EwenDanielo/qualite.git', credentialsId: 'github-token'
+                checkout scm
             }
         }
 
         stage('Docker Compose up DB') {
             steps {
                 dir('.') {
-                    sh 'docker compose up -d postgres-db'
-                    sh 'sleep 10'
+                    sh '''
+                    if [ $(docker ps -a -q -f name=qualite_postgres) ]; then
+                        docker rm -f qualite_postgres
+                    fi
+                    docker-compose up -d postgres-db
+                    sleep 10
+                    '''
                 }
             }
         }
@@ -70,7 +84,6 @@ pipeline {
         stage('Dependency Check (OWASP)') {
             steps {
                 dir('biblioflex-api') {
-                    // Exécute le scan OWASP Dependency-Check
                     sh 'dependency-check.sh --project "qualite-api" --scan . --format HTML --out dependency-check-report'
                 }
             }
@@ -81,7 +94,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
             junit 'biblioflex-api/target/surefire-reports/*.xml'
