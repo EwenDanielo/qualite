@@ -28,10 +28,13 @@ Enfin une première analyse a été réalisé par SonarCloud
 ![image](https://github.com/user-attachments/assets/0a80796f-0162-45d0-b6d8-e43592ec05e6)
 
 ### Echec du Quality Gate
-**3 conditions échouées** :
-- Fiabilité non évaluée (Rating A requis).
-- 0% des Security Hotspots revus (objectif 100%).
-- 23.6% de lignes dupliquées sur le nouveau code (objectif ≤ 3%).
+La première analyse nous revèle un échec à cause de 3 conditions qui ont échoués
+- Fiabilité non évaluée (Rating A requis)
+- 0% des Security Hotspots revus (objectif 100%)
+- 23.6% de lignes dupliquées sur le nouveau code (objectif ≤ 3%)
+
+Après analyse, beaucoup des erreurs de duplications provenait de fichiers "coverage" généré par Angular/Karma. Nous les avons alors exclu du projet via le fichier sonar-config.properties
+
 
 ![image](https://github.com/user-attachments/assets/9b56cdbb-ae82-446e-9610-b991184cb863)
 
