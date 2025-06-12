@@ -11,6 +11,8 @@ Utilisation d'outils de vérification du code:
 - SonarCloud
 - Jenkins
 
+---
+
 Pour ce qui est de SonarCloud, nous avons connecter l'interface directement avec le repository GitHub
 
 ![image](https://github.com/user-attachments/assets/cd633bf9-69e6-44d7-b34b-73b9d3ec67b9)
