@@ -10,6 +10,7 @@ public class QualiteApplication {
     public static void main(String[] args) {
         if (System.getenv("POSTGRES_USER") == null) {
             Dotenv dotenv = Dotenv.load();
+            System.setProperty("POSTGRES_HOST", dotenv.get("POSTGRES_HOST"));
             System.setProperty("POSTGRES_USER", dotenv.get("POSTGRES_USER"));
             System.setProperty("POSTGRES_PASSWORD", dotenv.get("POSTGRES_PASSWORD"));
             System.setProperty("POSTGRES_DB", dotenv.get("POSTGRES_DB"));
