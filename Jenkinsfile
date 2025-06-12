@@ -2,23 +2,28 @@ pipeline {
     agent any
 
     tools {
-    maven 'Maven 3.9.10'
-  }
+        maven 'Maven 3.9.10'
+    }
 
     environment {
-    SONAR_TOKEN = credentials('sonar-token')
-    GITHUB_TOKEN = credentials('github-token')
-    PG_CREDS = credentials('pg-credentials')
+        SONAR_TOKEN = credentials('sonar-token')
+        GITHUB_TOKEN = credentials('github-token')
+        PG_CREDS = credentials('pg-credentials')
 
-    POSTGRES_USER = "${PG_CREDS_USR}"
-    POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
-    POSTGRES_HOST = "qualite_postgres"
-    POSTGRES_DB = 'Library'
-    POSTGRES_PORT = '5432'
-}
-
+        POSTGRES_USER = "${PG_CREDS_USR}"
+        POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
+        POSTGRES_HOST = "qualite_postgres"
+        POSTGRES_DB = 'Library'
+        POSTGRES_PORT = '5432'
+    }
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Docker Compose up DB') {
             steps {
                 dir('.') {
@@ -65,7 +70,6 @@ pipeline {
         stage('Dependency Check (OWASP)') {
             steps {
                 dir('biblioflex-api') {
-                    // Exécute le scan OWASP Dependency-Check
                     sh 'dependency-check.sh --project "qualite-api" --scan . --format HTML --out dependency-check-report'
                 }
             }
@@ -76,7 +80,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
             junit 'biblioflex-api/target/surefire-reports/*.xml'
