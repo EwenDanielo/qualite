@@ -24,8 +24,8 @@ pipeline {
                 checkout scm
             }
         }
+    }
 
-        
     post {
         always {
             junit 'biblioflex-api/target/surefire-reports/*.xml'
