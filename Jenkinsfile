@@ -9,10 +9,22 @@ pipeline {
     environment {
         SONAR_TOKEN = credentials('sonar-token')
         GITHUB_TOKEN = credentials('github-token')
+        PG_CREDS = credentials('pg-credentials')
 
+        POSTGRES_USER = "${PG_CREDS_USR}"
+        POSTGRES_PASSWORD = "${PG_CREDS_PSW}"
         POSTGRES_HOST = "qualite_postgres"
         POSTGRES_DB = 'Library'
         POSTGRES_PORT = '5432'
+    }
+
+    stages {
+        stage('Example') {
+            steps {
+                echo "Username: $PG_CREDS_USR"
+                echo "Password: $PG_CREDS_PSW"
+            }
+        }
     }
 
     stages {
@@ -36,28 +48,14 @@ pipeline {
             }
         }
 
-        stage('Docker Compose up DB') {
+        stage('Build Backend') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'pg-credentials', 
-                                                 usernameVariable: 'POSTGRES_USER', 
-                                                 passwordVariable: 'POSTGRES_PASSWORD')]) {
-                    dir('.') {
-                        sh '''
-                        if [ $(docker ps -a -q -f name=qualite_postgres) ]; then
-                            docker rm -f qualite_postgres
-                        fi
-        
-                        export POSTGRES_USER=${POSTGRES_USER}
-                        export POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-                        
-                        docker-compose up -d postgres-db
-                        sleep 10
-                        '''
-                    }
+                dir('biblioflex-api') {
+                    sh 'mvn clean verify'
                 }
             }
         }
-        
+
         stage('Build Frontend') {
             steps {
                 dir('biblioflex-ui') {
