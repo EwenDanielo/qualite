@@ -67,7 +67,13 @@ Un hotspot critique a été identifié : une potentielle injection via la chaîn
 
 ---
 
-Jenkins
+Nous n'avons malheureusement pas réussi à utiliser Jenkins pour unifier les cycles de build, de tests et d'analyse de qualité. Nous avons des erreurs sur la configuration de Jenkins et de Docker.
+
+![image](https://github.com/user-attachments/assets/d9d6a55a-9473-4984-8d41-bb88db9735e0)
+
+![image](https://github.com/user-attachments/assets/7137e321-068f-45f1-b6a2-565613f29402)
+
+Nous avons alors effectué nos différents tests à la main
 
 Tests unitaires JUnit
 
@@ -85,4 +91,4 @@ Tentative de lier le coverage de Karma avec SonarCloud avec
 
 ![image](https://github.com/user-attachments/assets/cc70d3d0-ce9f-4912-bde3-13d0b3c9c060)
 
-
+Cette analyse nous montre plusiuers faiblesses importantes, comme des problèmes de duplication de code, de comformité HTML et de sécurité.
