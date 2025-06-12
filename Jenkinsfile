@@ -21,10 +21,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git(
-                    url: 'https://github.com/EwenDanielo/qualite.git',
-                    credentialsId: 'github-token'
-                )
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/EwenDanielo/qualite.git',
+                        credentialsId: 'github-token'
+                    ]]
+                ])
             }
         }
 
