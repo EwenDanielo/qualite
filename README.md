@@ -35,6 +35,8 @@ La première analyse nous revèle un échec à cause de 3 conditions qui ont éc
 
 Après analyse, beaucoup des erreurs de duplications provenait de fichiers "coverage" généré par Angular/Karma. Nous les avons alors exclu du projet via le fichier sonar-config.properties
 
+![image](https://github.com/user-attachments/assets/7b67b34f-4d99-4ab5-9590-9f5856d9ad70)
+
 ---
 
 ![image](https://github.com/user-attachments/assets/9b56cdbb-ae82-446e-9610-b991184cb863)
