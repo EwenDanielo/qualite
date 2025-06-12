@@ -94,3 +94,10 @@ Tentative de lier le coverage de Karma avec SonarCloud avec
 ---
 
 Cette analyse nous montre plusiuers faiblesses importantes, comme des problèmes de duplication de code, de comformité HTML et de sécurité.
+
+Dans les axes d'amélioration, nous devrions :
+- Corriger les problèmes de duplication de code, en excluant les fichiers de couverture générés par Angular/Karma
+- Sécuriser les failles de sécurité (rf Injection RCE)
+- Corriger les problèmes de conformité HTML, (ex: attributs `name` obsolètes)
+- Réussier à mettre en place une intégration continue avec Jenkins pour automatiser les builds, tests et analyses de qualité.
+
