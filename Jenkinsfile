@@ -24,9 +24,8 @@ pipeline {
                 checkout scm
             }
         }
-    }
 
-    stage('Docker Compose up DB') {
+            stage('Docker Compose up DB') {
             steps {
                 dir('.') {
                     sh '''
@@ -39,4 +38,5 @@ pipeline {
                 }
             }
         }
+    }
 }
